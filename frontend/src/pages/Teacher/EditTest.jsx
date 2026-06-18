@@ -4,6 +4,7 @@ import axios from "axios";
 import TeacherLayout from "../../layouts/TeacherLayout";
 import { updateTest } from "../../api/teacherApi";
 import "../../styles/editTest.css";
+import { API_URL } from "../../config";
 
 // EditTest component allows teachers to edit an existing test
 function EditTest() {
@@ -21,7 +22,7 @@ function EditTest() {
 
   useEffect(() => {
     const loadTest = async () => {
-      const response = await axios.get(`http://localhost:5000/api/tests/${id}`);
+      const response = await axios.get(`${API_URL}/api/tests/${id}`);
 
       const test = response.data;
 

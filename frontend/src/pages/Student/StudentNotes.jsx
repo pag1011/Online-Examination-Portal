@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../../styles/studentNotes.css";
 import Footer from "../../components/Footer";
+import { API_URL } from "../../config";
 
 // This component displays a list of study notes available to students,
 // allowing them to search and access notes based on title or subject.
@@ -13,7 +14,7 @@ function StudentNotes() {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/notes");
+        const { data } = await axios.get(`${API_URL}/api/notes`);
 
         setNotes(data);
       } catch (error) {

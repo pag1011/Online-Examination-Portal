@@ -4,6 +4,7 @@ import axios from "axios";
 import Footer from "../../components/Footer";
 import TeacherLayout from "../../layouts/TeacherLayout";
 import "../../styles/dashboard.css";
+import { API_URL } from "../../config";
 
 // TeacherDashboard component provides an overview of the teacher's activities and statistics
 function TeacherDashboard() {
@@ -19,15 +20,13 @@ function TeacherDashboard() {
 
   const loadStats = async () => {
     try {
-      const notes = await axios.get("http://localhost:5000/api/notes");
+      const notes = await axios.get(`${API_URL}/api/notes`);
 
-      const tests = await axios.get("http://localhost:5000/api/tests");
+      const tests = await axios.get(`${API_URL}/api/tests`);
 
-      const results = await axios.get("http://localhost:5000/api/results");
+      const results = await axios.get(`${API_URL}/api/results`);
 
-      const students = await axios.get(
-        "http://localhost:5000/api/students/count",
-      );
+      const students = await axios.get(`${API_URL}/api/students/count`);
 
       setStats({
         notes: notes.data.length,

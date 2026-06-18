@@ -5,6 +5,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { jsPDF } from "jspdf";
 import "../../styles/myResults.css";
 import Footer from "../../components/Footer";
+import { API_URL } from "../../config";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -17,7 +18,7 @@ function MyResults() {
     const fetchResults = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:5000/api/results/student/${studentInfo.name}`,
+          `${API_URL}/api/results/student/${studentInfo.name}`,
         );
 
         setResults(data);

@@ -1,0 +1,1 @@
+export const API_URL = "https://examination-portal-2r5m.onrender.com/";

@@ -2,8 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../../styles/auth.css";
+import { API_URL } from "../../config";
 
-// This component handles the student login functionality, 
+// This component handles the student login functionality,
 // allowing students to enter their credentials and access their dashboard upon successful authentication.
 function StudentLogin() {
   const [email, setEmail] = useState("");
@@ -15,13 +16,10 @@ function StudentLogin() {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post(
-        "http://localhost:5000/api/students/login",
-        {
-          email,
-          password,
-        },
-      );
+      const { data } = await axios.post(`${API_URL}/api/students/login`, {
+        email,
+        password,
+      });
 
       localStorage.setItem("studentInfo", JSON.stringify(data));
 

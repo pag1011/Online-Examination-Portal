@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import TeacherLayout from "../../layouts/TeacherLayout";
 import axios from "axios";
 import "../../styles/analytics.css";
+import { API_URL } from "../../config";
 
 // Analytics component displays the analytics dashboard for teachers
 function Analytics() {
@@ -15,14 +16,17 @@ function Analytics() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const tests = await axios.get("http://localhost:5000/api/tests");
+        const tests = await axios.get(`${API_URL}/api/tests`);
 
-        const results = await axios.get("http://localhost:5000/api/results");
+        const results = await axios.get(`${API_URL}/api/results`);
 
         const percentages = results.data.map((r) => r.percentage);
 
-        const average = percentages.length ? (
-          percentages.reduce((a, b) => a + b, 0) / percentages.length).toFixed(2) : 0;
+        const average = percentages.length
+          ? (
+              percentages.reduce((a, b) => a + b, 0) / percentages.length
+            ).toFixed(2)
+          : 0;
 
         const highest = percentages.length ? Math.max(...percentages) : 0;
 

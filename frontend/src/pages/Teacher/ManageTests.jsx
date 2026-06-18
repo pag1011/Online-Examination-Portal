@@ -3,6 +3,7 @@ import TeacherLayout from "../../layouts/TeacherLayout";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../../styles/manageTests.css";
+import { API_URL } from "../../config";
 
 // ManageTests component allows teachers to view, search, and manage their created tests
 function ManageTests() {
@@ -13,7 +14,7 @@ function ManageTests() {
   const [subjectFilter, setSubjectFilter] = useState("All");
 
   const fetchTests = async () => {
-    const response = await axios.get("http://localhost:5000/api/tests");
+    const response = await axios.get(`${API_URL}/api/tests`);
 
     setTests(response.data);
   };
@@ -30,7 +31,7 @@ function ManageTests() {
 
     if (!confirmDelete) return;
 
-    await axios.delete(`http://localhost:5000/api/tests/${id}`);
+    await axios.delete(`${API_URL}/api/tests/${id}`);
 
     alert("Test Deleted Successfully");
 

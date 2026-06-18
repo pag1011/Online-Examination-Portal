@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import TeacherLayout from "../../layouts/TeacherLayout";
 import axios from "axios";
 import "../../styles/viewTest.css";
+import { API_URL } from "../../config";
 
 // ViewTest component allows teachers to view the details of a specific test, including its questions and answers
 function ViewTest() {
@@ -12,7 +13,7 @@ function ViewTest() {
 
   useEffect(() => {
     const fetchTest = async () => {
-      const response = await axios.get(`http://localhost:5000/api/tests/${id}`);
+      const response = await axios.get(`${API_URL}/api/tests/${id}`);
 
       setTest(response.data);
     };

@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../../styles/studentDashboard.css";
+import { API_URL } from "../../config";
 
 // This component serves as the main dashboard for students, providing an overview of available tests, notes, and results.
 // It also allows students to navigate to different sections of the portal and log out.
@@ -24,12 +25,12 @@ function StudentDashboard() {
   useEffect(() => {
     const loadStats = async () => {
       try {
-        const tests = await axios.get("http://localhost:5000/api/tests");
+        const tests = await axios.get(`${API_URL}/api/tests`);
 
-        const notes = await axios.get("http://localhost:5000/api/notes");
+        const notes = await axios.get(`${API_URL}/api/notes`);
 
         const results = await axios.get(
-          `http://localhost:5000/api/results/student/${studentInfo?.name}`,
+          `${API_URL}/api/results/student/${studentInfo?.name}`,
         );
 
         const average = results.data.length

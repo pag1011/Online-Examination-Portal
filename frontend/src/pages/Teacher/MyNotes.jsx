@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import TeacherLayout from "../../layouts/TeacherLayout";
 import "../../styles/myNotes.css";
+import { API_URL } from "../../config";
 
 // MyNotes component allows teachers to view, search, and manage their uploaded notes
 function MyNotes() {
@@ -13,7 +14,7 @@ function MyNotes() {
 
   const fetchNotes = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/api/notes/teacher/${teacherInfo.name}`,
+      `${API_URL}/api/notes/teacher/${teacherInfo.name}`,
     );
 
     setNotes(data);
@@ -29,7 +30,7 @@ function MyNotes() {
 
     if (!confirmDelete) return;
 
-    await axios.delete(`http://localhost:5000/api/notes/${id}`);
+    await axios.delete(`${API_URL}/api/notes/${id}`);
 
     fetchNotes();
   };
