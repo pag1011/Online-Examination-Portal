@@ -1,0 +1,36 @@
+.edit-test-page {
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px;
+}
+
+.edit-test-page h1 {
+  margin-bottom: 25px;
+}
+
+.edit-test-page input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+}
+
+.edit-question-card {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.update-btn {
+  margin-top: 25px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 14px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+}

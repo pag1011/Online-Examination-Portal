@@ -1,0 +1,100 @@
+.results-container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 30px;
+}
+
+.results-title {
+  margin-bottom: 30px;
+  color: #1e293b;
+}
+
+.result-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.result-card {
+  background: white;
+  border-radius: 18px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.result-left {
+  flex: 1;
+}
+
+.result-card h2 {
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+.result-card p {
+  margin-bottom: 8px;
+}
+
+.student-chart {
+  width: 220px;
+}
+
+.pass-status {
+  color: #16a34a;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.fail-status {
+  color: #dc2626;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.ai-box {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border-left: 5px solid #3b82f6;
+}
+
+.no-results {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 22px;
+}
+
+@media (max-width: 768px) {
+  .result-card {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .student-chart {
+    width: 180px;
+  }
+
+  .results-container {
+    padding: 15px;
+  }
+}
+
+.certificate-btn {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.certificate-btn:hover {
+  background: #1d4ed8;
+}
